@@ -12,7 +12,4 @@
  *
  *= require_tree .
  *= require_self
- *= require_bootstrap
- *= require_override-bootstrap
- *= require_style
- 
+ */
