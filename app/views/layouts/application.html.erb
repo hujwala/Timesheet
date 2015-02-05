@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= render partial: 'layouts/common/header'  %>
+<div id="popup_modal" class="modal fade"></div>
 <%= yield %>
-
 </body>
 </html>
