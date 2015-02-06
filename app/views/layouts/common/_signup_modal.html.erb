@@ -4,7 +4,7 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <h4 class="modal-title">Sign Up</h4>
     </div>
-    <%= form_for :user, url: users_path, method: ",post",remote: true, html: {:class =>"form-horizontal"} do |f| %>
+    <%= form_for :user, url: users_path, method: "post",authenticity_token: true, remote: true, html: {:class =>"form-horizontal", :id => "sign_up"} do |f| %>
     <div class="modal-body">
       <div class="form-group">
         <label for="Name" class="col-sm-3 control-label">Name</label>
@@ -17,7 +17,7 @@
    <div class="form-group">
     <label for="inputEmail" class="col-sm-3 control-label">Email id</label>
     <div class="col-sm-7">
-      <%= f.text_field :email, :class =>"form-control",:id =>"inputEmail",:placeholder =>"Email" %>
+      <%= f.text_field :email, :class =>"form-control",:id =>"user_email",:placeholder =>"Email" %>
       <% if @user.errors[:email].any? %>
       <span class="help-block"><%= @user.errors[:email].first %></span>
       <% end %>
@@ -27,7 +27,7 @@
   <div class="form-group">
     <label for="inputPassword" class="col-sm-3 control-label">Password</label>
     <div class="col-sm-7">
-      <%= f.password_field :password, :class =>"form-control",:id =>"inputPassword",:placeholder => "Password" %>
+      <%= f.password_field :password, :class =>"form-control",:id =>"input_password",:placeholder => "Password" %>
       <% if @user.errors[:password].any? %>
       <span class="help-block"><%= @user.errors[:password].first %></span>
       <% end %>
@@ -37,7 +37,7 @@
   <div class="form-group">
     <label for="inputPassword" class="col-sm-3 control-label">Confirm</label>
     <div class="col-sm-7">
-      <%= f.password_field :password_confirmation, :class =>"form-control",:id =>"inputPassword",:placeholder => "Password confirmation" %>
+      <%= f.password_field :password_confirmation, :class =>"form-control",:id =>"input_confirmation_password",:placeholder => "Password confirmation" %>
       <% if @user.errors[:password].any? %>
       <span class="help-block"><%= @user.errors[:password].first %></span>
       <% end %>

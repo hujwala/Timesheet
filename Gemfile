@@ -34,6 +34,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "shoulda"
   gem 'pg'
+  gem 'jquery-validation-rails'
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
