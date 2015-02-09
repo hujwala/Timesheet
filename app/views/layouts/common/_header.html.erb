@@ -13,19 +13,10 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-
-          
-          <!-- Sign up Button trigger modal -->
-            <!-- <button type="button" class="btn btn-success signup-login-btn" data-toggle="modal" data-target="#signUp">
-            Sign up -->
-          </button>
-          <%= link_to 'Sign up', new_user_path, :class => "btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal', remote: true %>
+          <%= button_to "Sign up", new_user_path ,:method=> :get, remote: true, :class=>"btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%>
         </li>
         <li>
-          <!-- Log in Button trigger modal -->
-          <button type="button" class="btn btn-success signup-login-btn" data-toggle="modal" data-target="#logIn">
-            Log in
-          </button>
+          <%= button_to 'log in', new_session_path,:method=> :get, :class => "btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal', remote: true %>
         </li>
       </ul>
     </div><!--/.navbar-collapse -->
