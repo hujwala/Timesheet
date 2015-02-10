@@ -164,7 +164,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-validation-rails
-  pg
+  pg (~> 0.18.1)
   pry
   pry-doc
   pry-rails
