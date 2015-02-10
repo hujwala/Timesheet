@@ -1,33 +1,21 @@
 function session_validator() {
 
-  jQuery.validator.addMethod("startsWithCapital", function(value, element) {
-   return /^[A-Z][a-zA-Z _0-9]+$/.test( value );
- });
-
-  jQuery.validator.addMethod("pswd_match",function (value,element){
-    return $("#input_password").val() == $('#input_confirmation_password').val();
-  });
-
-  jQuery.validator.addMethod("alpha", function(value, element) {
-    return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
-  });
-
   $('#sign_in').validate({
     debug: true,
     rules: {
      "user[email]": {
        required: true,
        email: true,
+       required: true
        },
      "user[password]" : {
       required: true,
       minlength: 6
     },
-    
   },
 
-  errorElement: "span",
 
+  errorElement: "span",
   errorClass: "help-block",
 
   messages: {
@@ -39,8 +27,8 @@ function session_validator() {
   },
   "user[password]": {
     required:"This field is required",
-    minlength:"Enter minimum 6 characters!",
-    maxlength: "Exceeded length!"
+    minlength:"Enter minimum 6 characters!"
+   
   },
  
 },

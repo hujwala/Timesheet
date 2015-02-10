@@ -12,12 +12,19 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
+        <% if current_user.present? %>
+        <li>
+          <h3 class="ujwala"><%= current_user.name %></h3>
+        </li>
+        <li><%= button_to 'log out', session_path(:id => current_user.id),:method=> :delete, :class => "btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal' %></li>
+        <% else %>
         <li>
           <%= button_to "Sign up", new_user_path ,:method=> :get, remote: true, :class=>"btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%>
         </li>
         <li>
           <%= button_to 'log in', new_session_path,:method=> :get, :class => "btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal', remote: true %>
         </li>
+        <% end %>
       </ul>
     </div><!--/.navbar-collapse -->
   </div>

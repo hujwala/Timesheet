@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "users/check_email" =>"users#check_email"
   resources :users
   resources :sessions
-  
+  resources :timesheet
 
   root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -19,22 +19,21 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.valid? && @user.errors.blank?
+    if @user.valid?
       @user.save
       @success = true
+      session[:user_id] = @user.id
+      respond_to do |format|
+        format.html{ redirect_to timesheet_index_path }
+      end
     else
       @success = false
-    end
-    respond_to do |format|
-      format.html{ redirect_to users_path }
+      render 'new'
     end
   end
 
   private
-
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-
-
 end

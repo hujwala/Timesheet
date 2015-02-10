@@ -8,11 +8,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:email])
-
-    if user && user.authenticate(params[:password])
+    user = User.find_by_email(params[:user][:email])
+    if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect_to  sessions_path, :success => "Logged in!"
+      redirect_to  timesheet_index_path
+      flash[:success] = "You have Logged in successfully!"
     else
       flash.now.alert = "Invalid email or password"
       redirect_to root_path
@@ -20,8 +20,12 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to new_user_path, :success => "Logged out!"
+    @user = User.find(params[:id])
+    if @user
+     session[:user_id] = nil
+     redirect_to root_path, :success => "Logged out!"
+   else
+    redirect_to root_path, :message => "Logged out!"
   end
-  
+end
 end

@@ -39,7 +39,6 @@ function UserValidator() {
   errorElement: "span",
 
   errorClass: "help-block",
-
   messages: {
    "user[name]": {
     required: "This field is required",
