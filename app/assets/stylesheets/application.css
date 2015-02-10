@@ -16,3 +16,8 @@
  *= require override-bootstrap
  *= require style
  */
+.ujwala{
+	font-size: 20px;
+	color: yellow;
+	
+}
