@@ -1,5 +1,9 @@
 function UserValidator() {
 
+jQuery.validator.addMethod("pswd_format", function(value, element) {
+   return /\A(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9!@$#&*_\.,;:])/.test( value );
+ });
+
   jQuery.validator.addMethod("startsWithCapital", function(value, element) {
    return /^[A-Z][a-zA-Z _0-9]+$/.test( value );
  });
@@ -27,7 +31,8 @@ function UserValidator() {
      },
      "user[password]" : {
       required: true,
-      minlength: 6
+      minlength: 6,
+      pswd_format: true
     },
     "user[password_confirmation]": {
       required: true,
@@ -52,7 +57,8 @@ function UserValidator() {
   "user[password]": {
     required:"This field is required",
     minlength:"Enter minimum 6 characters!",
-    maxlength: "Exceeded length!"
+    maxlength: "Exceeded length!",
+    pswd_format: "Password should contain upper, lower case and special character with numbers"
   },
   "user[password_confirmation]": {
     required: "This field is required",
