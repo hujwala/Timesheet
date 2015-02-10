@@ -6,7 +6,7 @@ function session_validator() {
      "user[email]": {
        required: true,
        email: true,
-       required: true
+       // remote:"/users/check_email"
        },
      "user[password]" : {
       required: true,

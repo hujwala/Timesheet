@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect_to  timesheet_index_path
       flash[:success] = "You have Logged in successfully!"
     else
-      flash.now.alert = "Invalid email or password"
+      flash[:error] = "Invalid email or password!"
       redirect_to root_path
     end
   end
