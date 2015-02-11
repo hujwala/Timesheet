@@ -1,6 +1,5 @@
-set :stage, :production
-set :branch, :master
-set :rails_env, :production
+set :stage, :it
+set :branch, :development
 set :deploy_to, '/u01/apps/qwinix/timesheet'
 set :log_level, :debug
 
