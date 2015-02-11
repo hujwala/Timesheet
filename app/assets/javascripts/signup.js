@@ -1,13 +1,5 @@
 function UserValidator() {
 
-jQuery.validator.addMethod("pswd_format", function(value, element) {
-   return /\A(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9!@$#&*_\.,;:])/.test( value );
- });
-
-  jQuery.validator.addMethod("startsWithCapital", function(value, element) {
-   return /^[A-Z][a-zA-Z _0-9]+$/.test( value );
- });
-
   jQuery.validator.addMethod("pswd_match",function (value,element){
     return $("#input_password").val() == $('#input_confirmation_password').val();
   });
@@ -21,8 +13,7 @@ jQuery.validator.addMethod("pswd_format", function(value, element) {
     rules: {
       "user[name]": {
         required: true,
-        alpha: true,
-        startsWithCapital: true
+        alpha: true
       },
       "user[email]": {
        required: true,
@@ -31,12 +22,11 @@ jQuery.validator.addMethod("pswd_format", function(value, element) {
      },
      "user[password]" : {
       required: true,
-      minlength: 6,
-      pswd_format: true
+      minlength: 6
+      
     },
     "user[password_confirmation]": {
       required: true,
-      equalTo: "#input_password",
       pswd_match: true
     }
   },
@@ -47,7 +37,7 @@ jQuery.validator.addMethod("pswd_format", function(value, element) {
   messages: {
    "user[name]": {
     required: "This field is required",
-    startsWithCapital: "Must begin with Uppercase!"
+    alpha: "should contain only alphabets"
   },
   "user[email]": {
     required: "This field is required",
@@ -56,13 +46,10 @@ jQuery.validator.addMethod("pswd_format", function(value, element) {
   },
   "user[password]": {
     required:"This field is required",
-    minlength:"Enter minimum 6 characters!",
-    maxlength: "Exceeded length!",
-    pswd_format: "Password should contain upper, lower case and special character with numbers"
+    minlength:"Enter minimum 6 characters!"
   },
   "user[password_confirmation]": {
     required: "This field is required",
-    equalTo:"Passwords do not match!",
     pswd_match: "Bingo! It's a match"
   }
 },

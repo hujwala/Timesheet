@@ -15,7 +15,7 @@ module ConfigCenter
     # a to z (both upper and lower case), 1 to 9, space, dot(.) and curly brackets "(" & ")" allowed.
     NAME_MIN_LEN = 2
     NAME_MAX_LEN = 256
-    NAME_FORMAT_REG_EXP = /\A[a-zA-Z1-9\-\ \(\)\.+]*\z/i
+    NAME_FORMAT_REG_EXP = /\A[a-zA-Z]+$\z/
 
     # User Name
     # Minimum length is 6 by default and maximum length is 32 by default

@@ -11,7 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
- gem 'therubyracer',  platforms: :ruby
+ # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -21,7 +21,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'rails_12factor', '0.0.2', group: :production
+gem 'rails_12factor', group: :production
 gem 'capistrano',  '~> 3.1'
 gem 'capistrano-rails', '~> 1.1'
 
@@ -35,7 +35,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem "shoulda"
-  gem 'pg', '~> 0.18.1'
+  gem 'pg'
   gem 'jquery-validation-rails'
 
   gem 'net-ssh', '~>2.7.0'
