@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  reconnect: false
+  database: timesheet_development
+  pool: 5
+  username: postgres
+  password: ujwalapatel6
+  host: localhost
+  port: 5432
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  reconnect: false
+  database: timesheet_test
+  pool: 5
+  username: postgres
+  password: ujwalapatel6
+  host: localhost
+  port: 5432
