@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 	validates :email, :presence =>true,
 	:uniqueness => true,
-	:format => {:with =>ConfigCenter::GeneralValidations::EMAIL_FORMAT_REG_EXP }
+	:format => {:with => ConfigCenter::GeneralValidations::EMAIL_FORMAT_REG_EXP }
 
 	validates :password, :presence =>true,
 	:length => {:minimum => 6 }
