@@ -22,8 +22,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'rails_12factor', group: :production
-gem 'capistrano',  '~> 3.1'
-gem 'capistrano-rails', '~> 1.1'
 gem 'pg'
 gem 'jquery-validation-rails'
 
@@ -36,10 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem "shoulda"
-  
-  
-
-  gem 'net-ssh', '~>2.7.0'
+ 
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
