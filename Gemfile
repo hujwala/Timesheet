@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'rails_12factor', group: :production
 gem 'capistrano',  '~> 3.1'
 gem 'capistrano-rails', '~> 1.1'
+gem 'pg'
 
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -35,7 +36,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem "shoulda"
-  gem 'pg'
+  
   gem 'jquery-validation-rails'
 
   gem 'net-ssh', '~>2.7.0'
