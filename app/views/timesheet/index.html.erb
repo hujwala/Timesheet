@@ -219,6 +219,11 @@
 </div>
 
 </form>
+<script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
  </div>
 </div>
 <div class="panel-footer text-center"> <h4>Total Time Spent</h4>

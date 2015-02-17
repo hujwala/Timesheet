@@ -17,16 +17,16 @@ class User < ActiveRecord::Base
 
 def self.authenticate(email, password)
 	
-    user = find_by_email(email)
+    @user = find_by_email(email)
     
-    if user && user.password_digest == BCrypt::Engine.hash_secret(password, user.password_digest)
+    if @user && @user.password_digest == BCrypt::Engine.hash_secret(password, user.password_digest)
     
-    user
+    @user
     else
     nil
   end
 end
- def self.create_with_omniauth(auth)
+ def self.from_omniauth(auth)
    create! do |user|
     user.provider = auth['provider']
     user.uid = auth['uid']

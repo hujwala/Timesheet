@@ -8,6 +8,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      
+<script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+
       <a href="#" class="navbar-brand">Timesheet</a>
     </div>
     <div class="navbar-collapse collapse">
