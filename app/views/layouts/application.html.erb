@@ -1,7 +1,16 @@
 <!DOCTYPE html>
+ <script>
+          history.pushState({ page: 1 }, "title 1", "#nbb");
+          window.onhashchange = function (event) {
+            window.location.hash = "nbb";
+          };
+        </script>
+
 <html>
 <head>
+
 	<title>Timesheet</title>
+	
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
