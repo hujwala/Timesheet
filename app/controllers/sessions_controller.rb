@@ -7,26 +7,24 @@ class SessionsController < ApplicationController
     end
   end
 
-  def create
-   if params[:provider] == "linkedin"
-    auth = request.env["omniauth.auth"]
-    user = User.where(:provider => auth['provider'],
-      :uid => auth['uid'].to_s).first || User.create_with_omniauth(auth)
-
-  else
-    user = User.authenticate(params[:email], params[:password])
+  
+    def create
+    if params[:provider] == "linkedin"
+      auth = User.from_omniauth(env["omniauth.auth"])
+      @user = User.find_by_provider_and_uid(auth["provider"],
+        auth["uid"]) || User.create_with_omniauth(auth)
+    else
+      @user = User.find_by_email(params[:user][:email])
+    end
+    if @user && @user.authenticate(params[:user][:password])
+      session[:user_id] = @user.id
+      redirect_to  timesheet_index_path
+      flash[:success] = "You have logged in successfullly!"
+    else
+      flash[:error] = "Invalid email or password"
+      redirect_to root_path
+    end
   end
-  if user
-    session[:user_id] = user.id
-    redirect_to  timesheet_index_path  
-    flash[:alert] = "you are successfully logged in " 
-  else 
-    flash.now.alert = "Invalid email or password"  
-    redirect_to root_path
-  end  
-end
-
-
 
 def destroy
   @user = User.find(params[:id])
