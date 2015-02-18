@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get 'auth/:provider/callback', to: 'sessions#create'
+  # get 'auth/failure', to: redirect('/')
+
   get "users/check_email" =>"users#check_email"
   resources :users
   resources :sessions

@@ -7,7 +7,7 @@
     <%= form_for :user, url: users_path, method: "post",authenticity_token: true, remote: true, html: {:class =>"form-horizontal", :id => "sign_up"} do |f| %>
     <div class="modal-body">
       <div class="form-group">
-        <label for="Name" class="col-sm-3 control-label">Name</label>
+        <label for="Name" class="col-sm-3 control-label">Username</label>
         <div class="col-sm-7">
          <%= f.text_field :name, :class =>"form-control",:id =>"Name", :placeholder => "Name" %>
        </span>
