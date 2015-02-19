@@ -19,3 +19,5 @@
 //= require jquery.validate.additional-methods
 //= require signup
 //= require signin
+//= require timesheet
+//= require event

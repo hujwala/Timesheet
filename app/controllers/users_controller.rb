@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       @success = true
       session[:user_id] = @user.id
       respond_to do |format|
-        format.html{ redirect_to timesheet_index_path }
+        format.html{ redirect_to timesheets_path }
       end
     else
       @success = false

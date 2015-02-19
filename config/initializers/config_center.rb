@@ -34,6 +34,8 @@ module ConfigCenter
     PASSWORD_FORMAT_REG_EXP = /\A(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9!@$#&*_\.,;:])/
     # PASSWORD_FORMAT_REG_EXP = /\A(?=.*?[a-z][A-Z])(?=.*?\d)(?=.*?[!@$&*_])/i
 
+
+    TIME_FORMAT = /\A[0-2][0-3]:[0-5][0-9]\z/
   end
 
   module Defaults

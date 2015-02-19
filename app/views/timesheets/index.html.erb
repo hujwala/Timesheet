@@ -1,0 +1,52 @@
+
+<!--Content Area-->
+<div class="container">
+<div class="row">
+  <!--Select Date -->
+  <div class="col-sm-6"> 
+   <!--Date -->
+   <form role="form" class="form-inline">
+    <div class="form-group  form-group-lg">
+     <label for="inputDate">Date</label>
+     <input type="date" class="form-control datepicker" id="inputDate" placeholder="at_beginning_of_day('%d-%m-%Y')" value= Time.now.strftime('%d-%m-%Y')>
+    </div>
+   </form>
+  </div>
+<div class="col-sm-6"></div>
+</div> 
+
+<hr>
+
+<!--Main Content-->
+<div class="row">
+<!--List View column -->
+<div class="col-sm-9">
+ <div class="panel panel-primary">
+  <div class="panel-heading">Daily Schedule View</div>
+  <div class="panel-body">
+   <div class="pull-right"><%= link_to "Add New", new_timesheet_path, :class =>"btn btn-info btn-lg", :remote => true %> <!-- <a href="#" class="btn btn-info btn-lg" id="show" >Add New</a> --> </div>
+<div id="append_form"></div>
+  
+   <!--./row -->
+  </div>    
+  <!--./Panel body  -->
+   <!--Timesheet Footer  -->  
+<div class="panel-footer text-center"> 
+<h3><small>Total Hours :</small> <span class="text-warning">08:00</span></h3>
+</div>
+ </div>
+</div>
+<!-- ./List view --> 
+
+
+<!-- ./ Show view -->
+
+</div>
+</div>
+<script>
+$(document).ready(function(){
+    $("#show").click(function(){
+        $("#time_sheet").show();
+    });
+});
+</script>
