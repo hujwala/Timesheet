@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'rails_12factor', group: :production
-gem 'pg'
+gem 'pg', '~> 0.18.1'
 gem 'jquery-validation-rails'
 gem 'bcrypt'
 
@@ -39,7 +39,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem "shoulda"
- 
+
 
 # Use ActiveModel has_secure_password
 # Use unicorn as the app server

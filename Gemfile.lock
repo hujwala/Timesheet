@@ -209,7 +209,7 @@ DEPENDENCIES
   jquery-rails
   jquery-validation-rails
   omniauth-linkedin-oauth2
-  pg
+  pg (~> 0.18.1)
   pry
   pry-doc
   pry-rails
