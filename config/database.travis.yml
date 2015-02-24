@@ -1,5 +1,5 @@
 test:
   adapter: postgresql
   database: timesheet_test
-  username: postgres
+  username: time_test
   password:
