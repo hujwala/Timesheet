@@ -1,12 +1,11 @@
 it:
   adapter: postgresql
   encoding: unicode
-  reconnect: false
   database: timesheet_it
-  pool: 5
-  username: postgres
-  password: password
-  host: localhost
+  pool: 10
+  username: timesheet_it
+  password: 605587b0f9a1c4c91e6022adec873c87
+  host: d-qwinix-awsw2-internal-apps-1.cgcl3vns0ith.us-west-2.rds.amazonaws.com
   port: 5432
 
 development:
