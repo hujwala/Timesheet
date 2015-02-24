@@ -4,7 +4,7 @@ it:
   reconnect: false
   database: timesheet_it
   pool: 5
-  username: postgres
+  username: time_it
   password: password
   host: localhost
   port: 5432
@@ -15,7 +15,7 @@ development:
   reconnect: false
   database: timesheet_development
   pool: 5
-  username: postgres
+  username: time_dev
   password: password
   host: localhost
   port: 5432
@@ -26,7 +26,7 @@ test:
   reconnect: false
   database: timesheet_test
   pool: 5
-  username: postgres
+  username: time_test
   password: password
   host: localhost
   port: 5432
