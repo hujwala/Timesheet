@@ -21,3 +21,4 @@
 //= require signin
 //= require timesheet
 //= require event
+//= require focus

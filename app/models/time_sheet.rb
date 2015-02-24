@@ -6,4 +6,6 @@ validates :description, :presence =>true
 
 validates :working_time, :presence =>true,
 :format => {:with => ConfigCenter::GeneralValidations::TIME_FORMAT }
+
+
 end

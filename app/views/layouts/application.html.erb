@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<%= render partial: 'layouts/common/header'  %>
+	<%= render partial: 'layouts/common/header' unless @disable_nav %> 
 	<div id="div_flash_message" class="container">
 		<%= render :partial=>"/layouts/common/flash_messages" -%>
 	</div>

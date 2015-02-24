@@ -1,9 +1,6 @@
 function timesheet_validator() {
   jQuery.validator.addMethod("number", function(value, element) {
-
-    // return value.match(/\A[0-2][0-3]:[0-5][0-9]\z/);
     var isValid = /^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$/.test(value);
-
     console.log(isValid);
     return isValid;
   });
@@ -47,7 +44,7 @@ function timesheet_validator() {
     },
     "time_sheet[working_time]": {
       required:"This field is required",
-      number:"It must contain only numbers with 24 hours"
+      number:"It must contain only numbers "
       
     }
   },
@@ -92,22 +89,4 @@ invalidHandler: function(event, validator) {
 
 }
 
-$(document).on('focusout', '.autosave', function(){
-  autoSavePost();
-});
 
-function autoSavePost() {
-  var project_name = $('#Name').val();
-  var description = $('#description').val();
-  var working_time = $('#working_time').val();
-  $.ajax({
-   type: "POST",
-   url: "/timesheets/autosave",
-   data: {project_name: project_name, description: description,working_time: working_time },
-   dataType: "script",
-   success: function(data) {
-     console.log(data);
-   }
- });
-  // setTimeout(autoSavePost, 60000);
-}

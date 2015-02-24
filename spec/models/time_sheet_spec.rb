@@ -15,7 +15,7 @@ end
       it{should validate_presence_of :description}
       it { should allow_value('worked on bugs').for(:description )}
       it{should validate_presence_of :working_time}
-      it { should allow_value('worked on bugs').for(:working_time )}
+      it { should allow_value('12:22').for(:working_time )}
   end 
 it "should validate project_name lenght" do
 
@@ -27,6 +27,18 @@ it "should validate project_name lenght" do
     time_sheet.project_name = "plis"
     time_sheet.valid?
     expect(time_sheet.errors[:project_name].size).to be 0
+    expect(time_sheet).to be_valid
+  end
+  it "should validate working_time lenght" do
+
+    time_sheet.working_time = "ujwala"
+    time_sheet.valid?
+    expect(time_sheet.errors[:working_time].size).to be 1
+    expect(time_sheet).to be_invalid
+
+    time_sheet.working_time = "12:12"
+    time_sheet.valid?
+    expect(time_sheet.errors[:working_time].size).to be 0
     expect(time_sheet).to be_valid
   end
 end
