@@ -15,10 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery_ujs
+//= require jquery-ui/datepicker
 //= require jquery.validate
 //= require jquery.validate.additional-methods
-//= require signup
-//= require signin
-//= require timesheet
-//= require event
-//= require focus

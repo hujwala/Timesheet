@@ -89,4 +89,6 @@ invalidHandler: function(event, validator) {
 
 }
 
-
+$(document).ready(function(){
+  $("#timesheetDate").datepicker();
+});
