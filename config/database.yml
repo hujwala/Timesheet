@@ -1,10 +1,10 @@
 it:
   adapter: postgresql
   encoding: unicode
+  reconnect: false
   database: timesheet_it
   pool: 10
-  username: postgres
-  password: deploy123!
+  timeout: 5000
   port: 5432
   host: localhost
 
