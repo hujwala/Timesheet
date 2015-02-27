@@ -10,7 +10,8 @@ RSpec.describe TimesheetsController, :type => :controller do
 			time_sheet: {
 				project_name: "timesheet",
 				description: "timesheet",
-				working_time: "21:12"
+				working_time: 21,
+				date: "02/27/2015"
 			}
 		}
 		session[:user_id] = user.id
