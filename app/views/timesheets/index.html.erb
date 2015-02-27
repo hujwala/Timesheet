@@ -1,0 +1,30 @@
+
+<!--Content Area-->
+<div class="container">
+  <div class="row">
+    <!--Select Date -->
+    <div class="col-sm-9">
+      <!--Date -->
+      <form role="form" class="form-inline" method="post" id="dateFilter">
+        <div class="form-group  form-group-lg">
+          <label for="inputDate">Date</label>
+          <input type="text" id="timesheetDate" value="<%= @date %>" name="date">
+        </div>  
+      </form>
+      <hr>
+
+      <%= render "timesheets/schedule" %>
+    </div>
+
+
+
+    <!-- Punch In Modal -->
+    <div class="col-sm-3">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myCreate"> Punch In </button>
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myCreate"> Punch Out </button>
+      <%= render "timesheets/punch_in_modal" %>
+    </div>
+  </div>
+
+  <div id="time_sheet_modal" class="modal fade"></div>
+</div>

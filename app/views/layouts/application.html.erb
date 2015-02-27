@@ -9,8 +9,9 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
+    
+	<%= render 'layouts/common/header' unless @disable_nav %> 
 
-	<%= render partial: 'layouts/common/header'  %>
 	<div id="div_flash_message" class="container">
 		<%= render :partial=>"/layouts/common/flash_messages" -%>
 	</div>

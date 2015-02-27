@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-
+ before_filter :set_cache_buster  
   def new
     respond_to do |format|
       format.js{}
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     end
     if @user
       session[:user_id] = @user.id
-      redirect_to timesheet_index_path
+      redirect_to timesheets_path
       flash[:success] = "You have logged in successfullly!"
     else
       flash[:error] = "Invalid email or password"
