@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225122418) do
+ActiveRecord::Schema.define(version: 20150226070420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20150225122418) do
   create_table "time_sheets", force: true do |t|
     t.string   "project_name"
     t.text     "description"
-    t.string   "working_time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "date"
+    t.string   "date"
     t.integer  "user_id"
+    t.integer  "working_time"
   end
 
   add_index "time_sheets", ["date"], name: "index_time_sheets_on_date", using: :btree

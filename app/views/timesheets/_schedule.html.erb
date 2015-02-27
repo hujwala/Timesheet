@@ -5,10 +5,13 @@
   
   <div class="panel-body">
     <%= render "form" %>
-    <%= render "index" %>
+    <%= render "time_entries" %>
   </div>    
 
   <div class="panel-footer text-center"> 
-    <h3><small>Total Hours :</small> <span class="text-warning">08:00</span></h3>
+  <%hours=0,minutes=0
+  hours=@total_time/60
+  minutes=@total_time%60 %>
+    <h3><small>Total Hours :</small> <span class="text-warning"><%= hours %>:<%=minutes %></span></h3>
   </div>
 </div>

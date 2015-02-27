@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-
+ before_filter :set_cache_buster  
   def new
     respond_to do |format|
       format.js{}

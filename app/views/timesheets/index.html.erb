@@ -5,15 +5,18 @@
     <!--Select Date -->
     <div class="col-sm-9">
       <!--Date -->
-      <form role="form" class="form-inline">
+      <form role="form" class="form-inline" method="post" id="dateFilter">
         <div class="form-group  form-group-lg">
           <label for="inputDate">Date</label>
-          <input type="text" id="timesheetDate" value="<%= @date %>" >
+          <input type="text" id="timesheetDate" value="<%= @date %>" name="date">
         </div>  
       </form>
       <hr>
+
       <%= render "timesheets/schedule" %>
     </div>
+
+
 
     <!-- Punch In Modal -->
     <div class="col-sm-3">
@@ -22,24 +25,6 @@
       <%= render "timesheets/punch_in_modal" %>
     </div>
   </div>
-</div>
 
-<script>
-  $(document).ready(function(){
-    $("#show").click(function(){
-      $("#time_sheet").show();
-    });
-    $("#inputDate").change(function(){
-      var date = $("#inputDate").val();
-      console.log(date);
-      $.ajax({
-       type: "POST",
-       url: "/timesheets/search_record",
-       data: { created_at: date },
-       success: function(data) {
-        $('#index_form').html(data);
-      }
-    });
-    });
-  });
-</script>
+  <div id="time_sheet_modal" class="modal fade"></div>
+</div>

@@ -1,9 +1,17 @@
 class TimesheetsController < ApplicationController
 	before_filter :require_login
   before_filter :disable_nav, only: [:search_record]
-	
+	 before_filter :set_cache_buster  
 	def index
-		# @time_sheets = TimeSheet.all
+		@date = Date.today.strftime("%m/%d/%Y")
+		@time_sheets = current_user.time_sheets.where(date: @date)
+		@total_time = 0
+		@time_sheets.each do |entry|
+          @total_time += entry.working_time
+          
+		end
+
+
 	end
 
 	def new
@@ -14,9 +22,10 @@ class TimesheetsController < ApplicationController
 	end
 
 	def create
-		@time_sheet = TimeSheet.new(time_sheet_params)
+		@time_sheet = current_user.time_sheets.build(time_sheet_params)
 		
 		if @time_sheet.valid?
+
 			@time_sheet.save
 			@success = true
 			respond_to do |format|
@@ -24,7 +33,8 @@ class TimesheetsController < ApplicationController
 			end
 		else
 			@success = false
-			render 'new'
+			@time_sheets = current_user.time_sheets
+			render 'index'
 		end
 	end
 
@@ -58,7 +68,8 @@ class TimesheetsController < ApplicationController
   end
 
 	def search_record
-   @time_sheets = TimeSheet.where("Date(created_at) = ?", params[:created_at])
+      @time_sheets = current_user.time_sheets.where(date: params[:date])
+      render json: @time_sheets
 	end
 
 
@@ -68,7 +79,7 @@ class TimesheetsController < ApplicationController
 
 	private
 	def time_sheet_params
-		params.require(:time_sheet).permit(:project_name, :description, :working_time)
+		params.require(:time_sheet).permit(:project_name, :description, :working_time, :date)
 	end
 end
 

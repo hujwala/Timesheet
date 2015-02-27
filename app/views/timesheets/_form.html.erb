@@ -7,7 +7,10 @@
       <%= f.text_area :description, :class =>"form-control",:id =>"description", :placeholder => "Task completed", size: "1x1" %> 
     </div>
     <div class="col-sm-2">
-      <%= f.text_field :working_time, :class =>"form-control",:id =>"working_time", :placeholder => "hh:mm" %> 
+      <%= f.number_field :working_time, :class =>"form-control",:id =>"working_time", :placeholder => "mm" %> 
+    </div>
+    <div class="col-sm-2">
+      <%= f.hidden_field :date, :class =>"form-control",:id =>"hiddenDate"%> 
     </div>
     <div class="col-sm-2">
       <%= f.submit "Submit", class: "btn btn-primary" %> 
