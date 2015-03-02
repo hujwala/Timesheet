@@ -93,7 +93,7 @@ invalidHandler: function(event, validator) {
       submitHandler: function(form) {
 
        form.submit();
-      }
+     }
    });
 
 }

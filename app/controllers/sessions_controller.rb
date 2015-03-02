@@ -1,13 +1,13 @@
 class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token
- before_filter :set_cache_buster  
+  
   def new
     respond_to do |format|
       format.js{}
     end
   end
 
-   def create
+  def create
     if params[:provider] == "linkedin"
       auth = User.from_omniauth(env["omniauth.auth"])
       @user = User.find_by_provider_and_uid(auth["provider"],
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     end
     if @user
       session[:user_id] = @user.id
-      redirect_to timesheets_path
+      redirect_to time_sheets_path
       flash[:success] = "You have logged in successfullly!"
     else
       flash[:error] = "Invalid email or password"
