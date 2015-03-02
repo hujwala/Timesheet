@@ -1,4 +1,4 @@
-  Rails.application.configure do
+Timesheet::application.configure do
 
   config.cache_classes = true
   config.eager_load = true
@@ -18,12 +18,10 @@
   config.i18n.fallbacks = true
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
-  config.action_mailer.asset_host = 'http://it.timsheet.qwinixtech.com/'
-  config.action_mailer.default_url_options = { :host => 'it.timsheet.qwinixtech.com' }
+  config.action_mailer.asset_host = 'http://it.timesheet.qwinixtech.com'
+  config.action_mailer.default_url_options = { :host => 'it.timesheet.qwinixtech.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
-
-
 
 end

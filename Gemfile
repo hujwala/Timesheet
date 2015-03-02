@@ -29,6 +29,7 @@ gem 'rails_12factor', group: :production
 gem 'pg', '~> 0.18.1'
 gem 'jquery-validation-rails'
 gem 'bcrypt'
+gem 'rb-readline', '~> 0.5.2'
 
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
