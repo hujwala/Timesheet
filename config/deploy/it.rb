@@ -16,6 +16,6 @@ server '54.149.170.199', roles: %w{:web, :app, :db}, user: 'deploy'
 
 set :ssh_options, {
    #verbose: :debug,
-   keys: %w(~/.ssh/id_rsa),
+   keys: %w(~/.ssh/id_dsa),
    auth_methods: %w(publickey)
 }
