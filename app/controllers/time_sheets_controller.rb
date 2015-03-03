@@ -1,35 +1,33 @@
-class TimesheetsController < ApplicationController
+class TimeSheetsController < ApplicationController
 	before_filter :require_login
-  before_filter :disable_nav, only: [:search_record]
-	 before_filter :set_cache_buster  
+	before_filter :disable_nav, only: [:search_record]
+	before_filter :set_cache_buster  
+	
 	def index
-		@date = Date.today.strftime("%m/%d/%Y")
+		@date = Date.today.strftime("%Y-%m-%d")
 		@time_sheets = current_user.time_sheets.where(date: @date)
+		@time_sheet = TimeSheet.new()
+		
 		@total_time = 0
 		@time_sheets.each do |entry|
-          @total_time += entry.working_time
-          
+			@total_time += entry.working_time
 		end
-
-
+		@total = total_time(@total_time)
 	end
 
 	def new
-		# @time_sheet = TimeSheet.new
-		# respond_to do |format|
-		# 	format.js{}
-		# end
+		
 	end
 
 	def create
-		@time_sheet = current_user.time_sheets.build(time_sheet_params)
+		@time_sheet = TimeSheet.new(time_sheet_params)
+		@time_sheet.user_id = current_user.id
 		
 		if @time_sheet.valid?
-
 			@time_sheet.save
 			@success = true
 			respond_to do |format|
-				format.html{ redirect_to timesheets_path }
+				format.js {}
 			end
 		else
 			@success = false
@@ -57,19 +55,20 @@ class TimesheetsController < ApplicationController
 	end
 
 
-	 def update
-    @time_sheet = TimeSheet.find(params[:id])
- 
-    if @time_sheet.update(time_sheet_params)
-      redirect_to timesheets_path
-    else
-      render 'edit'
-    end
-  end
+	def update
+		@time_sheet = TimeSheet.find(params[:id])
+
+		if @time_sheet.update(time_sheet_params)
+			redirect_to time_sheets_path
+		else
+			render 'edit'
+		end
+	end
 
 	def search_record
-      @time_sheets = current_user.time_sheets.where(date: params[:date])
-      render json: @time_sheets
+		@date = params[:date] || Date.today.strftime("%Y-%m-%d")
+		@time_sheets = current_user.time_sheets.where(date: params[:date])
+		render json: @time_sheets
 	end
 
 
@@ -80,6 +79,12 @@ class TimesheetsController < ApplicationController
 	private
 	def time_sheet_params
 		params.require(:time_sheet).permit(:project_name, :description, :working_time, :date)
+	end
+
+	def total_time(minutes)
+		hours = minutes/60
+		minutes = minutes%60
+		"#{hours}:#{minutes}"
 	end
 end
 

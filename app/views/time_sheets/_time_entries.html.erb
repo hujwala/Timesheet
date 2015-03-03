@@ -1,0 +1,30 @@
+<div id="myDIV">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Project Name</th>
+        <th>Description</th>
+        <th>Working Time</th>
+        <th></th>
+      </tr>
+    </thead>
+    
+    <tbody id="tableData">
+      <% @time_sheets.each do |time_sheet| %>
+      <tr>
+        <td><%= time_sheet.date %></td>
+        <td><%= time_sheet.project_name %></td>
+        <td><%= truncate(time_sheet.description, length: 15) %></td>
+        <td><%= time_sheet.working_time %></td>
+        <% if Date.today.strftime("%Y-%m-%d") == @date %>
+        <td><%= link_to "Edit", edit_time_sheet_path(time_sheet),:remote => true %></td>
+        
+        <% end %>
+      </tr>
+      <% end %>
+      
+    </tbody>
+    
+  </table>
+</div>

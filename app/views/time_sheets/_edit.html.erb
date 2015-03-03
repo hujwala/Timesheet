@@ -1,0 +1,30 @@
+<div  id="myCreate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="myModalLabel">Edit</h4>
+    </div>
+    <div class="modal-body">
+      <%= form_for @time_sheet, remote: :true, html: {:id =>"edit_time_sheet",:class =>"form-horizontal"} do |f| %>
+      <div class="form-group alert alert-default alert-dismissible fade in">
+        <div class="col-sm-3">
+          <%= f.text_field :project_name, :class =>"form-control",:id =>"Name", :placeholder => "project" %> 
+        </div>
+        <div class="col-sm-5">
+          <%= f.text_area :description, :class =>"form-control",:id =>"description", :placeholder => "Task completed", size: "1x1" %> 
+        </div>
+        <div class="col-sm-2">
+          <%= f.number_field :working_time, :class =>"form-control1",:id =>"working_time", :placeholder => "mm" %> 
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="modal-footer">
+      <button id="edit-time-sheet" type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+       
+    </div>
+  </div>
+</div>
+</div>
