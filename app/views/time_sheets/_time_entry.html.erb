@@ -1,0 +1,7 @@
+<tr>
+	<td><%= @time_sheet.date %></td>
+	<td><%= @time_sheet.project_name %></td>
+	<td><%= @time_sheet.description %></td>
+	<td><%= @time_sheet.working_time %></td>
+	 <td><%= link_to "Edit", edit_time_sheet_path(@time_sheet),:remote => true %></td>
+</tr>

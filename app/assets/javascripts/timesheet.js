@@ -1,11 +1,6 @@
 function timesheet_validator() {
-  jQuery.validator.addMethod("number", function(value, element) {
-    var isValid = /^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$/.test(value);
-    console.log(isValid);
-    return isValid;
-  });
 
-  $('#time_sheet').validate({
+  $('#time_sheet1').validate({
     debug: true,
     rules: {
 
@@ -20,9 +15,7 @@ function timesheet_validator() {
       
     },
     "time_sheet[working_time]": {
-      required: true,
-      number: true
-
+      required: true
 
     }
   },
@@ -38,6 +31,11 @@ function timesheet_validator() {
       
     },
     "time_sheet[description]": {
+      required:"This field is required"
+      
+      
+    },
+    "time_sheet[date]": {
       required:"This field is required"
       
       
@@ -90,5 +88,13 @@ invalidHandler: function(event, validator) {
 }
 
 $(document).ready(function(){
-  $("#timesheetDate").datepicker();
+  $('#timesheetDate').datepicker({
+    dateFormat: 'yy-mm-dd'
+  });
+  
+  $(document).on('click', '#edit-time-sheet', function(e){
+    $("#edit_time_sheet").submit();
+    window.location.reload();
+    e.preventDefault();
+  })
 });

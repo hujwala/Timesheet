@@ -7,7 +7,7 @@ function session_validator() {
        required: true,
        email: true,
        // remote:"/users/check_email"
-       },
+     },
      "user[password]" : {
       required: true,
       minlength: 6
@@ -20,24 +20,24 @@ function session_validator() {
 
   messages: {
    
-  "user[email]": {
-    required: "This field is required",
-    email: "Please enter a valid E-Mail address!",
-    remote: "Email has already been taken"
+    "user[email]": {
+      required: "This field is required",
+      email: "Please enter a valid E-Mail address!",
+      remote: "Email has already been taken"
+    },
+    "user[password]": {
+      required:"This field is required",
+      minlength:"Enter minimum 6 characters!"
+      
+    },
+    
   },
-  "user[password]": {
-    required:"This field is required",
-    minlength:"Enter minimum 6 characters!"
-   
-  },
- 
-},
 
-highlight: function(element) {
- $(element).parent().parent().addClass("has-error");
-},
+  highlight: function(element) {
+   $(element).parent().parent().addClass("has-error");
+ },
 
-unhighlight: function(element) {
+ unhighlight: function(element) {
   $(element).parent().parent().removeClass("has-error");
 },
 
@@ -72,7 +72,7 @@ invalidHandler: function(event, validator) {
       submitHandler: function(form) {
 
        form.submit();
-      }
+     }
    });
 
 }
