@@ -1,4 +1,4 @@
-Timesheet::application.configure do
+Timesheet::Application.configure do
 
   config.cache_classes = true
   config.eager_load = true
