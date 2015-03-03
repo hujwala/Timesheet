@@ -18,8 +18,8 @@ Timesheet::Application.configure do
   config.i18n.fallbacks = true
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
-  config.action_mailer.asset_host = 'http://it.timesheet.qwinixtech.com'
-  config.action_mailer.default_url_options = { :host => 'it.timesheet.qwinixtech.com' }
+  config.action_mailer.asset_host = 'http://it.time.qwinixtech.com/'
+  config.action_mailer.default_url_options = { :host => 'it.time.qwinixtech.com/' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
