@@ -1,0 +1,19 @@
+<%= form_for :time_sheet, url: timesheets_path, method: :post, html: {:id =>"time_sheet",:class =>"form-horizontal autosave row"} do |f| %>
+  <div class="form-group alert alert-default alert-dismissible fade in">
+    <div class="col-sm-3">
+      <%= f.text_field :project_name, :class =>"form-control",:id =>"Name", :placeholder => "project" %> 
+    </div>
+    <div class="col-sm-5">
+      <%= f.text_area :description, :class =>"form-control",:id =>"description", :placeholder => "Task completed", size: "1x1" %> 
+    </div>
+    <div class="col-sm-2">
+      <%= f.number_field :working_time, :class =>"form-control",:id =>"working_time", :placeholder => "mm" %> 
+    </div>
+    <div class="col-sm-2">
+      <%= f.hidden_field :date, :class =>"form-control",:id =>"hiddenDate"%> 
+    </div>
+    <div class="col-sm-2">
+      <%= f.submit "Submit", class: "btn btn-primary" %> 
+    </div>
+  </div>
+<% end %>

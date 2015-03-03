@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
     has_secure_password :validations => false
-
+  has_many :time_sheets
 	validates :name, :presence =>true,
 	:format => {:with => ConfigCenter::GeneralValidations::NAME_FORMAT_REG_EXP},
 	:unless => proc{|u| u.provider.present?}
