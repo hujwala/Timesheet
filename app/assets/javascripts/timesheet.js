@@ -1,5 +1,5 @@
 function timesheet_validator() {
-
+  
   $('#time_sheet1').validate({
     debug: true,
     rules: {
@@ -16,6 +16,7 @@ function timesheet_validator() {
     },
     "time_sheet[working_time]": {
       required: true
+     
 
     }
   },
