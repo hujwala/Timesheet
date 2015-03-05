@@ -1,4 +1,8 @@
 function timesheet_validator() {
+  
+  jQuery.validator.addMethod("alpha", function(value, element) {
+    return this.optional(element) || value <= 1440 ;
+  });
 
   $('#time_sheet1').validate({
     debug: true,
@@ -15,7 +19,8 @@ function timesheet_validator() {
       
     },
     "time_sheet[working_time]": {
-      required: true
+      required: true,
+      alpha: true
 
     }
   },
@@ -42,7 +47,9 @@ function timesheet_validator() {
     },
     "time_sheet[working_time]": {
       required:"This field is required",
-      number:"It must contain only numbers "
+      number:"It must contain only numbers ",
+      alpha: "Exceeds 24 hours"
+
       
     }
   },
@@ -97,4 +104,9 @@ $(document).ready(function(){
     window.location.reload();
     e.preventDefault();
   })
+  
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 5000);
+ 
 });

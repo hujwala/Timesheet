@@ -12,6 +12,8 @@ $(document).ready(function(){
       $("#time_sheet1").hide();
     }
 
+   }
+
     $.ajax({
      type: "POST",
      dataType: "json",

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_filter :set_cache_buster 
   def index
   end
 
