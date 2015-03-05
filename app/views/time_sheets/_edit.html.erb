@@ -5,6 +5,19 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <h4 class="modal-title" id="myModalLabel">Edit</h4>
     </div>
+    
+        <tr>
+       <strong><span style="padding-left:20px">Project Name</span></strong>
+
+
+        <strong><span style="padding-left:40px">Description</span></strong>
+
+
+
+       <strong><span style="padding-left:50px">Working Time [In Minutes]</span></strong>
+        </tr>
+   
+      
     <div class="modal-body">
       <%= form_for @time_sheet, remote: :true, html: {:id =>"edit_time_sheet",:class =>"form-horizontal"} do |f| %>
       <div class="form-group alert alert-default alert-dismissible fade in">

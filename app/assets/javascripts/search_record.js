@@ -12,6 +12,8 @@ $(document).ready(function(){
       $("#time_sheet1").hide();
     }
 
+   }
+
     $.ajax({
      type: "POST",
      dataType: "json",
@@ -49,3 +51,8 @@ $(document).ready(function(){
   });
 });
 });
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 5000);
+ })
