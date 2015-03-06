@@ -10,12 +10,18 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require turbolinks
 //= require jquery
 //= require bootstrap
-//= require turbolinks
 //= require jquery_ujs
 //= require jquery-ui/datepicker
 //= require jquery.validate
 //= require jquery.validate.additional-methods
+//= require signin
+//= require signup
+//= require timesheet
+//= require event
+//= require hidden_data_filed
+//= require search_record
 //= require validator
 //= require_tree .
