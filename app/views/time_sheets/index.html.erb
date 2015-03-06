@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <!--Select Date -->
-    <div class="col-sm-9">
+    <div class="col-sm-6">
       <!--Date -->
       <form role="form" class="form-inline" method="post" id="dateFilter">
         <div class="form-group  form-group-lg">
@@ -11,14 +11,22 @@
           <input type="text" id="timesheetDate" value="<%= @date %>" name="date">
         </div>  
       </form>
-      <hr>
-
-      <%= render "time_sheets/schedule" %>
     </div>
-
-
-
+      <%= render "time_sheets/punch_in_modal" %>
+      <hr>
   </div>
+  <br>
+  <br>
+<div class="row">
+<div class="col-sm-9">
+      <%= render "time_sheets/schedule" %>
+      </div>
+      <div class="col-sm-3">
+      <%= render "time_sheets/time_zone" %>
+      </div>
+      </div>
+
+
 
   <div id="time_sheet_modal" class="modal fade"></div>
 </div>
