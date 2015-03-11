@@ -1,5 +1,6 @@
 function UserValidator() {
 
+
   jQuery.validator.addMethod("pswd_match",function (value,element){
     return $("#input_password").val() == $('#input_confirmation_password').val();
   });
@@ -36,21 +37,21 @@ function UserValidator() {
   errorClass: "help-block",
   messages: {
    "user[name]": {
-    required: "This field is required",
+    required: "Name is required",
     alpha: "should contain only alphabets"
   },
   "user[email]": {
-    required: "This field is required",
+    required: "Email is required",
     email: "Please enter a valid E-Mail address!",
     remote: "Email has already been taken"
   },
   "user[password]": {
-    required:"This field is required",
+    required:"Password is required",
     minlength:"Enter minimum 6 characters!"
   },
   "user[password_confirmation]": {
-    required: "This field is required",
-    pswd_match: "Bingo! It's a match"
+    required: "Password_confirmation is required",
+    pswd_match: "Password match"
   }
 },
 
@@ -90,10 +91,24 @@ invalidHandler: function(event, validator) {
         }
 
       },
+
       submitHandler: function(form) {
 
        form.submit();
      }
    });
-
+setTimeout(function(){ $("#exampleInputFile").change(function(){
+  if (this.files && this.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#preview').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(this.files[0]);
+  }
+});
+ }, 400);
 }
+
+
+
+

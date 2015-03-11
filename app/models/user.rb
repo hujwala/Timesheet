@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
 	validates :password, :presence =>true,
 	:length => {:minimum => 6 },
 	:unless => proc{|u| u.provider.present?}
-
+  
+ mount_uploader :image, ImageUploader
 def self.authenticate(email, password)
 	
     @user = find_by_email(email)
@@ -33,6 +34,7 @@ end
     user.oauth_token = auth['oauth_token']
     if auth['info']
       user.name = auth['info']['name'] || ""
+      user.email = auth['info']['email'] || ""
     end
   end
 end

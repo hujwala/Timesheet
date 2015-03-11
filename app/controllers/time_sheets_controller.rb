@@ -11,12 +11,14 @@ class TimeSheetsController < ApplicationController
 			@total_time += entry.working_time
 		end
 		@total = time_format(@total_time)
+
 	end
 
 	def new
 	end
 
 	def create
+		@time_sheets = current_user.time_sheets
 		@time_sheet = TimeSheet.new(time_sheet_params)
 		@time_sheet.user_id = current_user.id
 		@total_minutes = TimeSheet.saved_minutes(@time_sheet)
@@ -27,10 +29,14 @@ class TimeSheetsController < ApplicationController
 				format.js {}
 			end
 		else
-			@time_sheets = current_user.time_sheets
 			@success = false
+			render(:index) { |page| page.reload }
 			flash[:error] = "Exceeds 24 hours"
-			render 'index'
+			respond_to do |format|
+				format.js do
+				end
+			end
+
 		end
 	end
 
