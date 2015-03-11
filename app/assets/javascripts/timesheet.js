@@ -1,5 +1,5 @@
 function timesheet_validator() {
-  
+
   jQuery.validator.addMethod("alpha", function(value, element) {
     return this.optional(element) || value <= 1440 ;
   });
@@ -31,22 +31,22 @@ function timesheet_validator() {
   messages: {
 
     "time_sheet[project_name]": {
-      required: "This field is required",
+      required: "Project name is required",
       maxlength: "exceed length"
       
     },
     "time_sheet[description]": {
-      required:"This field is required"
+      required:"Description is required"
       
       
     },
     "time_sheet[date]": {
-      required:"This field is required"
+      required:"Date is required"
       
       
     },
     "time_sheet[working_time]": {
-      required:"This field is required",
+      required:"Working_time is required",
       number:"It must contain only numbers ",
       alpha: "Exceeds 24 hours"
 
@@ -108,5 +108,6 @@ $(document).ready(function(){
   setTimeout(function(){
     $('#flash').remove();
   }, 5000);
- 
+
+
 });

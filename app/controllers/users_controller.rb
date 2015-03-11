@@ -9,6 +9,7 @@ before_filter :set_cache_buster
       format.json { render :json => !@user  }
     end
   end
+   
 
   def new
     @user = User.new
@@ -34,6 +35,6 @@ before_filter :set_cache_buster
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation,:image)
   end
 end

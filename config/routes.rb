@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   # get 'auth/failure', to: redirect('/')
 
   get "users/check_email" =>"users#check_email"
+  get "sessions/email_exist" =>"sessions#email_exist"
+  
+
   post "time_sheets/autosave"=>"time_sheets#autosave"
   post "time_sheets/search_record"=>"time_sheets#search_record"
   resources :users
   resources :sessions
   resources :time_sheets
-   
+
   root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

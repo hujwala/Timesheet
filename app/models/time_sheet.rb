@@ -8,10 +8,10 @@ class TimeSheet < ActiveRecord::Base
     validates :date, :presence =>true
 
     def self.saved_minutes(object)
-    	saved_minutes = TimeSheet.where(date: object.date ).all
+    	saved_minutes = TimeSheet.where(date: object.date).where(user_id: object.user.id).all
     	sum = 0;
     	saved_minutes.each { |u| sum += u.working_time }; 
     	sum
-    	total_minutes = sum + object.working_time;
+    	@total_minutes = sum + object.working_time;
     end
 end

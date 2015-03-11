@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem "shoulda"
+  
 
 
 # Use ActiveModel has_secure_password
@@ -53,5 +54,6 @@ group :development, :test do
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'carrierwave'
 
 end
