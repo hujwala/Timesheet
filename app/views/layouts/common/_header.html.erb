@@ -17,8 +17,9 @@
       <ul class="nav navbar-nav navbar-right">
 
         <% if current_user.present? %>
-        <li>
-        <img src="assets/Profile-Pic.jpg" alt="Profile picture" class="img-rounded profile-pic"></li>
+       <li>
+        <%= image_tag  current_user.image,  :alt =>"Image", :class => "img-rounded profile-pic" %>
+        </li>
         <li>
           <h3 class="ujwala"><%= current_user.name.titleize %></h3>
 
