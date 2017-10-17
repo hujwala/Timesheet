@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'capistrano', '~> 3.3.0'
+# gem 'capistrano', '~> 3.3.0'
 gem 'omniauth-linkedin-oauth2'
 
 gem 'rails', '4.1.8'
@@ -42,6 +42,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem "shoulda"
+  gem 'capistrano', '~> 3.0', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', github: 'capistrano/rbenv', require: false
 
 
 
