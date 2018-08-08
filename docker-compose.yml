@@ -1,0 +1,19 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    cpu_shares: 100
+    mem_limit: 224288000
+  web:
+    image: 571780515387.dkr.ecr.us-east-1.amazonaws.com/docker_test:ruby-poc-r8
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    links:
+       - db
+    cpu_shares: 100
+    mem_limit: 224288000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db

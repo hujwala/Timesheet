@@ -8,7 +8,9 @@ it:
   password: password
   timeout: 5000
   port: 5432
-  host: localhost
+  host: db
+
+
 
 development:
   adapter: postgresql
@@ -16,9 +18,9 @@ development:
   reconnect: false
   database: timesheet_development
   pool: 5
-  username: time_dev
+  username: postgres
   password: password
-  host: localhost
+  host: db
   port: 5432
 
 test:
@@ -27,7 +29,7 @@ test:
   reconnect: false
   database: timesheet_test
   pool: 5
-  username: time_test
+  username: postgres
   password: password
-  host: localhost
+  host: db
   port: 5432

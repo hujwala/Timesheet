@@ -1,19 +1,19 @@
   <table class="table table-condensed">
     <thead>
       <tr>
-      <strong><span style="padding-left:20px">Date</span></strong>
+<strong><span style="padding-left:20px">Date</span></strong>
 <strong><span style="padding-left:180px">Project Name</span></strong>
 <strong><span style="padding-left:90px">Description</span></strong>
 <strong><span style="padding-left:50px">Working Time[In Minutes]</span></strong>
 
-        
+
       </tr>
     </thead>
   </table>
   <div id="myDIV">
     <table class="table table-condensed">
       <tbody id="tableData">
-        
+
         <% @time_sheets.each do |time_sheet| %>
         <tr>
           <td><%= time_sheet.date %></td>
@@ -22,13 +22,13 @@
           <td><%= time_sheet.working_time %></td>
           <% if Date.today.strftime("%Y-%m-%d") == @date %>
           <td><%= link_to "Edit", edit_time_sheet_path(time_sheet),:remote => true %></td>
-          
+
           <% end %>
         </tr>
         <% end %>
-        
+
       </tbody>
-      
+
     </table>
   </div>
 
